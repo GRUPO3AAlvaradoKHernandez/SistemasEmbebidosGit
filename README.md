@@ -1,2 +1,0 @@
-# SistemasEmbebidosGit
-Repositorio para SistemasEmbebidos
