@@ -9,7 +9,7 @@ void tabla (int Tabla[]){
 for (int i=0 ; i<=100;i++)
 {
     Tabla[i] = rand () % (70-10+1) + 10;
-    //Tabla[i] = Tabla[i]/10;
+   //Tabla[i] = Tabla[i]/10;
     //guardar(Tabla[i]);
     //printf("%d \n", Tabla[i]);
 } 
