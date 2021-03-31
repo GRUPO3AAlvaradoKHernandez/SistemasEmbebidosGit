@@ -3,6 +3,7 @@
 #include <math.h>
 
 
+
 //const char EndOfLine[] = "\n";
 void tabla (int Tabla[]){
     srand (time(NULL));
