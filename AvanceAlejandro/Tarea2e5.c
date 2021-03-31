@@ -3,18 +3,15 @@
 #include <math.h>
 
 
-
-//const char EndOfLine[] = "\n";
-void tabla (int Tabla[]){
-    srand (time(NULL));
-for (int i=0 ; i<=100;i++)
-{
-    Tabla[i] = rand () % (70-10+1) + 10;
-   //Tabla[i] = Tabla[i]/10;
-    //guardar(Tabla[i]);
-    //printf("%d \n", Tabla[i]);
-} 
-}
+void tabla (int Tabla[]){ //Creación de la tabla con las notas 
+             srand (time(NULL));
+                for (int i=0 ; i<=100;i++)
+                    {
+                        Tabla[i] = rand () % (70-10+1) + 10;
+                        // printf("%d \n", Tabla[i]);
+    
+                    } 
+            }
 
 
 int main(){
@@ -22,34 +19,32 @@ int main(){
     float sum,var,des,mo;
     tabla(ALU);
     sum=mediaarit(ALU);
-    printf("La Media Artimetica es:\n");
-    printf("%.1f \n ",sum);
     var=varianza(ALU);
-    printf("La Varianza es:\n");
-    printf("%.1f \n",var);
     des=desviacion(ALU);
-    printf("La Desviacion es:\n");
-    printf("%.1f \n",des);
     mo=moda(ALU);
+    printf("La Media Artimetica es:\n");
+    printf("%d \n ",(int)sum);
+    printf("La Varianza es:\n");
+    printf("%d \n ",(int)var);
+    printf("La Desviacion es:\n");
+    printf("%d \n ",(int)des);
     printf("La Moda es:\n");
-    printf("%.1f \n",mo);
-
-
+    printf("%d \n ",(int)mo);
 }
 
-int mediaarit(int t[]){
+int mediaarit(int t[]){ //Calculo Media
      int count=0;
      float suma;
      int n=100;
 
      for (int i=1;i<=n;i++){
          count=count+t[i];
-     }
+            }
      suma=count/n;
      return suma;
 }
 
-int varianza(int t[]){
+int varianza(int t[]){ //Calculo Varianza
 
      float sum;
      int count=0;
@@ -64,7 +59,7 @@ int varianza(int t[]){
      return suma;
 }
 
-int desviacion(int t[]){
+int desviacion(int t[]){ //Calculo Desviación 
      float sum;
      int count=0;
      float suma;
@@ -76,7 +71,7 @@ int desviacion(int t[]){
      return res;
 }
 
-int moda( int num[]){
+int moda( int num[]){ //Calculo de Moda
         int b,cont,val=100;
         static float numero;
         for(int a=0;a<val;a++){
@@ -92,11 +87,3 @@ int moda( int num[]){
         }
     return numero;
 }
-/*void guardar(int a) {
-    FILE* fichero;
-    fichero = fopen("Notas.txt", "wt");
-    fwrite(a, sizeof(char), sizeof(a),fichero);
-    fclose(fichero);
-    
-}*/
-
