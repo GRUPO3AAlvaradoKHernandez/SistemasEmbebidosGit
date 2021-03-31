@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+
 //const char EndOfLine[] = "\n";
 void tabla (int Tabla[]){
     srand (time(NULL));
@@ -28,6 +29,10 @@ int main(){
     des=desviacion(ALU);
     printf("La Desviacion es:\n");
     printf("%.1f \n",des);
+    mo=moda(ALU);
+    printf("La Moda es:\n");
+    printf("%.1f \n",mo);
+
 
 }
 
@@ -45,64 +50,46 @@ int mediaarit(int t[]){
 
 int varianza(int t[]){
 
-    float sum;
-    int count=0;
+     float sum;
+     int count=0;
      float suma;
      int n=100;
-    sum=mediaarit(t);
+     sum=mediaarit(t);
 
-    for (int i=1;i<=n;i++){
+     for (int i=1;i<=n;i++){
          count=count+pow((t[i]-sum),2);
      }
-    suma=count/n;
+     suma=count/n;
      return suma;
 }
 
 int desviacion(int t[]){
-    float sum;
-    int count=0;
+     float sum;
+     int count=0;
      float suma;
      float var;
      float res;
      int n=100;
-    var=varianza(t);
-    res = sqrt(var);
-    return res;
+     var=varianza(t);
+     res = sqrt(var);
+     return res;
 }
 
-void moda(){
-
-    /*
-
-    // Calcular la moda
-    // Rellenamos el vector auxiliar inicializandolo a valores 0
-    for(contador=0;contador<MAX;contador++) {
-        auxiliar[contador]=0;
-    }
-    // Recorrer el vector comprobando las repeticiones de cada numero
-    // y almacenando las mismas en el vector auxiliar segun la posicion
-    // del numero
-    for(contador=0;contador<MAX;contador++) {
-        numero = numeros[contador];
-        posicion = contador;
-        for(contador2=contador;contador2<MAX;contador2++) {
-            if(numeros[contador2]==numero) auxiliar[posicion]++;
+int moda( int num[]){
+        int b,cont,val=100;
+        static float numero;
+        for(int a=0;a<val;a++){
+                cont=0;
+                for(b=0;b<val;b++){
+                     if(num[a]==num[b]){
+                         cont++;  
+                         }
+                }
+                if(cont>=2){
+                numero=num[a];
+            }
         }
-    }
-    // Una vez esALUcidas las repeticiones de cada numero se ha de establcer
-    // cual es la posicion del vector que tiene un numero de repeticiones mayor
-    // ya que esta es la posicion que se corresponde con el numero que se repite
-    // mas veces el vector ( MODA )
-    // se esALUce en primer lugar el mayor como el primer elemento del vector
-    mayor=auxiliar[0];
-    posicionmayor = 0;
-    for(contador=0;contador<MAX;contador++) {
-        if(auxiliar[contador]>mayor) {
-            posicionmayor=contador;
-            mayor=auxiliar[contador];
-        }
-    }
-    */
+    return numero;
 }
 /*void guardar(int a) {
     FILE* fichero;
