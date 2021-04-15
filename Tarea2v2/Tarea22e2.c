@@ -20,7 +20,7 @@ void comcadena (unsigned int lg,char cad[51]){
             exit(-1);
         }
         if(ispunct(cad[i])!=0){ //Comprueba si existe un carácter de puntuación.
-            printf("La cadena ingresada no es valida.\n",);
+            printf("La cadena ingresada no es valida.\n");
             exit(-1);
         }
         else if(isspace(cad[i])!=0){ //Comprueba si existe un espacio en la cadena.
@@ -52,5 +52,6 @@ int main(){
             }
        }
     }
+    printf("\n");
     return 0;
 }
