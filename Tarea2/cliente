@@ -1,0 +1,31 @@
+#codigo del cliente
+import socket
+
+HEADER = 64 #LARGO DEL MENSAJE (64 bites)
+PORT = 3074 # PRIMERO SE DEJA VACIO PARA VER QUE PUERTAS ESTAN ABIERTAS
+SERVER = '158.251.91.68'
+ADDR = (SERVER, PORT) #SE DEFINE UNA TUPLA, donde esta la ip y el puerto
+FORMAT = 'utf-8' #FORMATO CON EL CUAL SE TRABAJA Y TRATAN LOS MENSAJES
+DISCONNECT_MESSAGE = 'DISCONNECT!'
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)# se convierte en un objeto, se pone el tipo de conexion o addres, en este caso ipv4, despues se pone lo que se hace, en este caso se stremean datos
+
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+client.connect(ADDR)
+
+def send(msg): #funcion
+    message = msg.encode(FORMAT) # se codidifica el mensaje en utf-8 y se guarda en message
+    msg_length = len(message) #len devuelve el largo de la variable, por lo que el largo queda guardado en msg_length
+    send_length = str(msg_length).encode(FORMAT)#se envia el largo, como devuelve entero se convierte a string, y se codifica en el formato utf-8
+
+    send_length += b' '*(HEADER - len(send_length))
+    client.send(send_lenght) #primero se manda el largo
+    cleint.send(messaje) # y aca se manda el mensaje
+    print(client.recv(2048).decode(FORMAT)) #como el servidor tambien me va a estar mandando informacion, se imprime a funcion recibir
+    # se debe ver que puertos estan abiertos
+send('hola') #para probar se mansa un hola, llamando a la funcion y pasandole una cadena de caracteres
+input()
+send('asdfasdf')
+input()
+send(DISCONNET_MESSAGE) #MENSAJE DE DESCONEXION
+#----------------------------------
